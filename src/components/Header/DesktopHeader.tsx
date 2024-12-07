@@ -5,17 +5,11 @@ import Logo from "../../../public/svg/logo.svg";
 import PrimaryButton from "../Button/PrimaryButton";
 import Link from "next/link";
 import { scrollToSection } from "@/lib/scrollToSection";
-import { useRouter } from "next/navigation";
 
 function DesktopHeader() {
-  const route = useRouter();
-
-  const onSubmit = () => {
-    route.push("/contact");
-  };
   return (
     <>
-      <nav className="w-[854px] h-auto flex justify-between items-center py-[13px] px-[46px] bg-background/30 backdrop-blur-md shadow-sm shadow-white rounded-full">
+      <nav className="w-[854px] h-auto flex justify-between items-center py-[13px] px-[46px] bg-background/30 backdrop-blur-md shadow-md border rounded-full">
         <Link href="/">
           <Image src={Logo} alt="Logo" width={104} height={30} />
         </Link>
@@ -76,12 +70,7 @@ function DesktopHeader() {
           </li>
         </ul>
 
-        <PrimaryButton
-          title="Let's Talk"
-          onClick={() => {
-            onSubmit();
-          }}
-        />
+        <PrimaryButton title="Let's Talk" />
       </nav>
     </>
   );

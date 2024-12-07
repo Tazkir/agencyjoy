@@ -7,22 +7,16 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import PrimaryButton from "../Button/PrimaryButton";
 import { scrollToSection } from "@/lib/scrollToSection";
-import { useRouter } from "next/navigation";
 import { MotionDiv } from "../Motion/motion";
 import { AnimatePresence } from "framer-motion";
 import { menuVariants } from "../Motion/variants";
 
 function MobileHeader() {
   const [open, setOpen] = useState(false);
-  const route = useRouter();
-
-  const onSubmit = () => {
-    route.push("/contact");
-  };
 
   return (
     <>
-      <nav className="w-full h-auto flex flex-col justify-center items-center gap-5 py-[13px] px-[20px] bg-background/30 backdrop-blur-lg shadow-sm shadow-white rounded-3xl overflow-hidden">
+      <nav className="w-full h-auto flex flex-col justify-center items-center gap-5 py-[13px] px-[20px] bg-background/30 backdrop-blur-lg shadow-md rounded-3xl overflow-hidden border">
         <div className="w-full flex justify-between items-center">
           <Link href="/">
             <Image src={Logo} width={100} height={100} alt="Logo" />
@@ -59,7 +53,6 @@ function MobileHeader() {
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("whyus");
-                      setOpen(false);
                     }}
                     className="hover:text-gray-300"
                   >
@@ -72,7 +65,6 @@ function MobileHeader() {
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("mission");
-                      setOpen(false);
                     }}
                     className="hover:text-gray-300"
                   >
@@ -85,7 +77,6 @@ function MobileHeader() {
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("works");
-                      setOpen(false);
                     }}
                     className="hover:text-gray-300"
                   >
@@ -98,7 +89,6 @@ function MobileHeader() {
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection("services");
-                      setOpen(false);
                     }}
                     className="hover:text-gray-300"
                   >
@@ -114,10 +104,6 @@ function MobileHeader() {
                   <PrimaryButton
                     classNames="w-[10em] px-2 text-base text-white"
                     title="Let's Talk"
-                    onClick={() => {
-                      onSubmit();
-                      setOpen(false);
-                    }}
                   />
                 </li>
               </ul>

@@ -54,5 +54,17 @@ export const data = {
       id: 12,
       src: Signum,
     },
+    {
+      id: 13,
+      src: Vectra,
+    },
+    {
+      id: 14,
+      src: Optimal,
+    },
+    {
+      id: 15,
+      src: Zapfast,
+    },
   ],
 };

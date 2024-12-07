@@ -1,6 +1,12 @@
+"use client";
+
 import PrimaryButtonDown from "@/components/Button/PrimaryButtonDown";
 import Marquee from "@/components/Marquee/marquee";
+import { DescriptionText } from "@/components/Typography/text";
+
 import { Badge } from "@/components/ui/badge";
+import { scrollToSection } from "@/lib/scrollToSection";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -28,11 +34,18 @@ export default function Hero() {
             </h1>
           </div>
 
-          <h3 className="font-manrope font-bold text-clamp-h3 text-[#AFAFAF] text-center">
-            Design services at your fingertips, Pause or cancel anytime.
-          </h3>
+          <DescriptionText title="Design services at your fingertips, Pause or cancel anytime." />
 
-          <PrimaryButtonDown title="Learn More" />
+          <Link
+            href="#whyus"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("whyus");
+            }}
+            className="hover:text-gray-300"
+          >
+            <PrimaryButtonDown title="Learn More" />
+          </Link>
 
           <div className="w-full flex flex-col gap-5 justify-center items-center py-7">
             <h3 className="font-manrope text-base font-semibold text-[#919191]">
