@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #050505;
+    --foreground: #ffffff;
+    --card: #050505;
+    --card-foreground: #ffffff;
+    --popover: #050505;
+    --popover-foreground: #ffffff;
+    --primary: #262626;
+    --primary-foreground: #dedede;
+    --secondary: #313135;
+    --secondary-foreground: #ffffff;
+    --muted: #313135;
+    --muted-foreground: #a1a1aa;
+    --accent: #c9c6c3;
+    --accent-foreground: #ffffff;
+    --destructive: #93061c;
+    --destructive-foreground: #ffffff;
+    --border: #313135;
+    --input: #333333;
+    --ring: #d4d4d8;
+    --ring2: #9e642e;
+    --chart-1: #e76e50;
+    --chart-2: #5ad3c5;
+    --chart-3: #5e9db5;
+    --chart-4:#e1af33;
+    --chart-5: #f4a462;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-satoshi p-0 m-0;
+  }
+}
+
+.text-clamp-hero{
+  font-size: clamp(34px, 10vw, 72px);
+}
+
+.text-clamp-h3{
+  font-size: clamp(12px, 3vw, 18px);
+}
+
+.skill {
+  cursor: pointer;
+  padding: 5px 20px;
+  font-size: clamp(26px, 5vw, 33px);
+  font-weight: bold;
+  color: white;
+  -webkit-text-stroke: none;
+  width: fit-content;
+  text-overflow: ellipsis;
+  overflow: visible;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  color: hsl(var(--foreground));
+}
+
+.layer {
+  --background: hsl(var(--background));
+  --color: hsl(var(--foreground));
+  --height: 4em;
+  --width: 4em;
+  --fade-stop: 80%;
+  --offset: -100px;
+
+  width: calc(100% + var(--offset));
+  height: var(--height);
+  left: calc(var(--offset) / 2 * -1);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(
+      to left,
+      var(--background) var(--fade-stop),
+      transparent
+    ),
+    linear-gradient(to right, var(--background) var(--fade-stop), transparent),
+    linear-gradient(black, black);
+}
