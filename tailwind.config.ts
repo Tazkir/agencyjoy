@@ -79,16 +79,36 @@ export default {
           "radial-gradient(circle, #E87811 1px, transparent 1px)",
         "radial-button":
           "radial-gradient(ellipse at top, var(--tw-gradient-stops))",
+        "gradient-text": "linear-gradient(to right, var(--tw-gradient-stops))",
       },
       backgroundSize: {
         "grid-slate-200": "15px 15px",
       },
-      animation: {},
+      animation: {
+        "arrow-bounce": "bounce2 4s ease-in-out",
+        gradient: "gradient 8s linear infinite",
+        "fade-top-bottom": "fade 1.5s linear",
+      },
       keyframes: {
         btnpulse: {
           "0%": { "box-shadow": '0 0 0 0 theme("colors.green.400")' },
           "50%": { "box-shadow": '0 0 0 0 theme("colors.green.400/50")' },
           "100%": { "box-shadow": '0 0 0 5px theme("colors.green.400/0")' },
+        },
+        bounce2: {
+          "0%, 100%": {
+            transform: "none",
+            "animation-timing-function": "cubic-bezier(0,0,0.2,1)",
+          },
+          "50%": {
+            transform: "translateY(25%)",
+            "animation-timing-function": "cubic-bezier(0.8,0,1,1)",
+          },
+        },
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
+          },
         },
       },
     },

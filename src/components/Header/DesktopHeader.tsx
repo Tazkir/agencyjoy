@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Logo from "../../../public/svg/logo.svg";
-import PrimaryButton from "../Button/PrimaryButton";
+import PrimaryButton from "../CustomUI/Button/PrimaryButton";
 import Link from "next/link";
 import { scrollToSection } from "@/lib/scrollToSection";
 
@@ -10,7 +10,13 @@ function DesktopHeader() {
   return (
     <>
       <nav className="w-[854px] h-auto flex justify-between items-center py-[13px] px-[46px] bg-background/30 backdrop-blur-md shadow-md border rounded-full">
-        <Link href="/">
+        <Link
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("hero");
+          }}
+          href="/"
+        >
           <Image src={Logo} alt="Logo" width={104} height={30} />
         </Link>
 

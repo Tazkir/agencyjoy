@@ -1,18 +1,20 @@
 "use client";
 
-import PrimaryButtonDown from "@/components/Button/PrimaryButtonDown";
+import PrimaryButtonDown from "@/components/CustomUI/Button/PrimaryButtonDown";
 import Marquee from "@/components/Marquee/marquee";
-import { DescriptionText } from "@/components/Typography/text";
-
+import { DescriptionText } from "@/components/CustomUI/Typography/text";
 import { Badge } from "@/components/ui/badge";
 import { scrollToSection } from "@/lib/scrollToSection";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="w-full min-h-screen relative flex justify-center items-center">
-      <div className="absolute inset-0 -z-10 flex justify-center items-center">
-        <div className="h-full w-[80%] bg-grid-slate-200 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" />
+    <div
+      id="hero"
+      className="w-full min-h-screen relative flex justify-center items-center"
+    >
+      <div className="absolute inset-0 -z-10 flex justify-start items-center">
+        <div className="w-[80%] h-full bg-grid-slate-200 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] opacity-50" />
       </div>
       <div className="w-full h-screen relative z-10 flex flex-col justify-center items-center px-2">
         <Badge

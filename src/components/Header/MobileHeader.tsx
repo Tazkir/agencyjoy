@@ -5,7 +5,7 @@ import Logo from "../../../public/svg/logo.svg";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import PrimaryButton from "../Button/PrimaryButton";
+import PrimaryButton from "../CustomUI/Button/PrimaryButton";
 import { scrollToSection } from "@/lib/scrollToSection";
 import { MotionDiv } from "../Motion/motion";
 import { AnimatePresence } from "framer-motion";
@@ -18,7 +18,13 @@ function MobileHeader() {
     <>
       <nav className="w-full h-auto flex flex-col justify-center items-center gap-5 py-[13px] px-[20px] bg-background/30 backdrop-blur-lg shadow-md rounded-3xl overflow-hidden border">
         <div className="w-full flex justify-between items-center">
-          <Link href="/">
+          <Link
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("hero");
+            }}
+            href="/"
+          >
             <Image src={Logo} width={100} height={100} alt="Logo" />
           </Link>
 

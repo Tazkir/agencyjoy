@@ -21,14 +21,13 @@ type CardProps = {
 
 export default function BenefitsCard({ title, desc, lottieFile }: CardProps) {
   return (
-    <div className="w-[20em] h-[25em] bg-radial-button from-[#262626] to-[#141414] flex flex-col gap-5 justify-start items-center rounded-2xl px-6 py-6 text-center bg-primary shadow-lg">
+    <div className="w-[18em] sm:w-[20em] h-[25em] bg-radial-button from-[#262626] to-[#141414] flex flex-col gap-5 justify-start items-center rounded-2xl px-6 py-6 text-center bg-primary shadow-lg">
       <div className="relative overflow-hidden w-full h-[48%] flex justify-center items-center bg-radial-button from-[#171717] to-[#050505] rounded-xl">
         <Particles
           className="absolute inset-0"
           quantity={50}
           ease={80}
           color={"#ffffff"}
-          staticity={100}
           refresh
         />
 

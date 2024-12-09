@@ -53,11 +53,11 @@
 }
 
 .text-clamp-h2{
-  font-size: clamp(27px, 7vw, 48px);
+  font-size: clamp(27px, 8vw, 48px);
 }
 
 .text-clamp-h3{
-  font-size: clamp(12px, 5vw, 18px);
+  font-size: clamp(14px, 4vw, 18px);
 }
 
 .skill {

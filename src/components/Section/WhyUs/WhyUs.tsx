@@ -1,14 +1,17 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import brain from "../../../../public/lotties/brain.json";
 import people from "../../../../public/lotties/people.json";
 import thumbup from "../../../../public/lotties/thumbup.json";
-import { DescriptionText, TitleText } from "@/components/Typography/text";
-import AccentButtonDown from "@/components/Button/AccentButtonDown";
+import {
+  DescriptionText,
+  TitleText,
+} from "@/components/CustomUI/Typography/text";
+import AccentButtonDown from "@/components/CustomUI/Button/AccentButtonDown";
 import { scrollToSection } from "@/lib/scrollToSection";
 import Link from "next/link";
 import BenefitsCard from "@/components/Card/BenefitsCard";
+import SectionBadge from "@/components/CustomUI/SectionBadge/SectionBadge";
 
 export default function WhyUs() {
   const brainLottie = {
@@ -35,12 +38,7 @@ export default function WhyUs() {
       className="w-full min-h-screen relative flex flex-col justify-center items-center gap-14"
     >
       <div className="w-full flex flex-col justify-center items-center gap-4">
-        <Badge
-          variant="outline"
-          className="font-manrope text-[#AFAFAF] text-sm px-5 py-1"
-        >
-          Why Us
-        </Badge>
+        <SectionBadge title="Why Us" />
 
         <div className="flex flex-col justify-center items-center text-center">
           <TitleText title="Experience the Benefits" />
@@ -50,7 +48,7 @@ export default function WhyUs() {
         <DescriptionText title="That drives impactful gain powerful results" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-6 ">
+      <div className="grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-6">
         <BenefitsCard
           title="Innovative Approach"
           desc="Look for works that reflect a unique character and differentiate in
