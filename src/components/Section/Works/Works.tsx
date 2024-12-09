@@ -15,6 +15,30 @@ import ImagesList from "./ImagesList";
 import { StaticImageData } from "next/image";
 import AccordionList from "./AccordionList";
 
+interface Metric {
+  value: string;
+  label: string;
+}
+
+const metrics: Metric[] = [
+  {
+    value: "150k+",
+    label: "Active Users",
+  },
+  {
+    value: "4.9",
+    label: "Rating out of 5",
+  },
+  {
+    value: "99k+",
+    label: "Positive Reviews",
+  },
+  {
+    value: "85k+",
+    label: "Users Satisfied",
+  },
+];
+
 export type ImagesProps = {
   id: number;
   img: StaticImageData;
@@ -38,7 +62,10 @@ export default function Works() {
   };
 
   return (
-    <div id="works" className="w-full relative py-10">
+    <div
+      id="works"
+      className="w-full h-auto relative py-20 flex flex-col justify-center items-center gap-16"
+    >
       <div className="w-full flex flex-col justify-center items-center gap-5">
         <SectionBadge title="Work That Make Us Proud" />
 
@@ -54,6 +81,20 @@ export default function Works() {
           <div className="flex-1 w-full">
             <ImagesList images={images} openIndex={openIndex} />
           </div>
+        </div>
+      </div>
+
+      <div className="w-[80%] md:w-[90%] max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 md:*:border-r md:last:*:border-none max-md:first:*:border-b max-md:first:*:border-r [&:nth-child(2)]:*:border-b md:[&:nth-child(2)]:*:border-b-0 [&:nth-child(3)]:*:border-r">
+          {metrics.map((metric, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center p-8 text-center"
+            >
+              <h3 className="text-clamp-h2 font-medium mb-2">{metric.value}</h3>
+              <p className="text-clamp-h3 text-[#AFAFAF]">{metric.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

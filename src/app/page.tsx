@@ -1,5 +1,6 @@
 import Hero from "@/components/Section/Hero/Hero";
 import OurMission from "@/components/Section/OurMission/OurMission";
+import Services from "@/components/Section/Services/Services";
 import WhyUs from "@/components/Section/WhyUs/WhyUs";
 import Works from "@/components/Section/Works/Works";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <WhyUs />
       <OurMission />
       <Works />
+      <Services />
     </div>
   );
 }
