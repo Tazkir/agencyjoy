@@ -96,3 +96,25 @@
     linear-gradient(to right, var(--background) var(--fade-stop), transparent),
     linear-gradient(black, black);
 }
+
+
+@keyframes shimmer {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer linear;
+}

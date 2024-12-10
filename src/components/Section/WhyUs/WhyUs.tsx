@@ -18,18 +18,21 @@ export default function WhyUs() {
     loop: true,
     autoplay: true,
     animationData: brain,
+    mode: "normal",
   };
 
   const thumbUpLottie = {
     loop: true,
     autoplay: true,
     animationData: thumbup,
+    mode: "normal",
   };
 
   const peopleLottie = {
     loop: true,
     autoplay: true,
     animationData: people,
+    mode: "normal",
   };
 
   return (

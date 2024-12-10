@@ -25,10 +25,9 @@ export default function BenefitsCard({ title, desc, lottieFile }: CardProps) {
       <div className="relative overflow-hidden w-full h-[48%] flex justify-center items-center bg-radial-button from-[#171717] to-[#050505] rounded-xl">
         <Particles
           className="absolute inset-0"
-          quantity={50}
+          quantity={20}
           ease={80}
           color={"#ffffff"}
-          refresh
         />
 
         <div className="absolute w-full h-full top-0">
@@ -45,7 +44,7 @@ export default function BenefitsCard({ title, desc, lottieFile }: CardProps) {
           <Lottie options={lottieFile} height={100} width={100} />
         </div>
       </div>
-      <h3 className="text-2xl font-satoshi">{title}</h3>
+      <h3 className="text-2xl font-satoshi font-medium">{title}</h3>
 
       <p className="font-manrope font-normal text-lg text-[#AFAFAF]">{desc}</p>
     </div>
