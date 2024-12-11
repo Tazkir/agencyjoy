@@ -1,3 +1,4 @@
+import FAQ from "@/components/Section/FAQ/FAQ";
 import Feedback from "@/components/Section/Feedback/Feedback";
 import Hero from "@/components/Section/Hero/Hero";
 import OurMission from "@/components/Section/OurMission/OurMission";
@@ -18,6 +19,7 @@ export default function Home() {
       <Pricing />
       <Feedback />
       <Teams />
+      <FAQ />
     </div>
   );
 }

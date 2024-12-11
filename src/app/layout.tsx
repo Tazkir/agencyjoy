@@ -3,6 +3,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/Header/Header";
 import { manrope, robotoMono, satoshi } from "@/components/Fonts/fonts";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Agencyjoy - AI Agency",
@@ -27,6 +28,7 @@ export default function RootLayout({
         <main className="relative flex flex-col">
           <NavBar />
           <section className="flex-grow flex-1">{children}</section>
+          <Footer />
         </main>
       </body>
     </html>

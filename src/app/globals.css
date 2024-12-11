@@ -71,6 +71,12 @@
 .text-clamp-feedback {
   font-size: clamp(24px, 4vw, 32px);
 }
+
+.text-clamp-footer{
+  font-size: clamp(27px, 5vw, 62px);
+}
+
+
 .skill {
   cursor: pointer;
   padding: 5px 20px;
