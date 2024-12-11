@@ -43,7 +43,7 @@ export default function Feedback() {
   return (
     <div
       id="feedback"
-      className="w-full relative flex flex-col justify-center items-center gap-14 py-14"
+      className="w-full relative flex flex-col justify-center items-center gap-14 pb-14"
     >
       <div className="w-full flex flex-col justify-center items-center gap-4">
         <SectionBadge title="What Our Users Say" />
@@ -112,13 +112,15 @@ export default function Feedback() {
               className="flex flex-col items-center gap-5 py-8 md:py-0 px-5"
               key={index}
             >
-              <Image
-                src={testimonial.logo}
-                width={100}
-                height={100}
-                alt=""
-                className="w-36 h-36 object-contain"
-              />
+              <div className="w-36 h-36 flex justify-center items-center">
+                <Image
+                  src={testimonial.logo}
+                  width={100}
+                  height={100}
+                  alt=""
+                  className="w-full h-full object-contain"
+                />
+              </div>
 
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, index) => (

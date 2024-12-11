@@ -3,6 +3,7 @@ import Hero from "@/components/Section/Hero/Hero";
 import OurMission from "@/components/Section/OurMission/OurMission";
 import Pricing from "@/components/Section/Pricing/Pricing";
 import Services from "@/components/Section/Services/Services";
+import Teams from "@/components/Section/Teams/Teams";
 import WhyUs from "@/components/Section/WhyUs/WhyUs";
 import Works from "@/components/Section/Works/Works";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       <Pricing />
       <Feedback />
+      <Teams />
     </div>
   );
 }
