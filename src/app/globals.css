@@ -31,9 +31,9 @@
     --chart-1: #e76e50;
     --chart-2: #5ad3c5;
     --chart-3: #5e9db5;
-    --chart-4:#e1af33;
+    --chart-4: #e1af33;
     --chart-5: #f4a462;
-    
+
     --radius: 0.5rem;
   }
 }
@@ -47,25 +47,29 @@
   }
 }
 
-.text-clamp-hero{
+.text-clamp-hero {
   font-size: clamp(34px, 10vw, 72px);
-  @apply font-medium
+  @apply font-medium;
 }
 
-.text-clamp-h2{
+.text-clamp-h2 {
   font-size: clamp(27px, 8vw, 48px);
 }
 
-.text-clamp-h3{
+.text-clamp-h3 {
   font-size: clamp(14px, 4vw, 18px);
 }
 
-.text-clamp-title-pricing{
+.text-clamp-title-pricing {
   font-size: clamp(22px, 4vw, 30px);
 }
 
-.text-clamp-desc-pricing{
+.text-clamp-desc-pricing {
   font-size: clamp(16px, 4vw, 18px);
+}
+
+.text-clamp-feedback {
+  font-size: clamp(24px, 4vw, 32px);
 }
 .skill {
   cursor: pointer;
@@ -103,7 +107,6 @@
     linear-gradient(to right, var(--background) var(--fade-stop), transparent),
     linear-gradient(black, black);
 }
-
 
 @keyframes shimmer {
   0% {

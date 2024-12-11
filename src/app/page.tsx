@@ -1,3 +1,4 @@
+import Feedback from "@/components/Section/Feedback/Feedback";
 import Hero from "@/components/Section/Hero/Hero";
 import OurMission from "@/components/Section/OurMission/OurMission";
 import Pricing from "@/components/Section/Pricing/Pricing";
@@ -14,6 +15,7 @@ export default function Home() {
       <Works />
       <Services />
       <Pricing />
+      <Feedback />
     </div>
   );
 }
