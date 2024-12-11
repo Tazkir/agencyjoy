@@ -12,7 +12,7 @@ export default function SmartAutomation() {
         <SmartAutomationButton
           title="Trigger"
           image={settings}
-          animationDelay="5s"
+          animationDelay="15s"
         />
         <div className="border-2 border-l h-2" />
         <SmartAutomationButton
@@ -24,7 +24,7 @@ export default function SmartAutomation() {
         <SmartAutomationButton
           title="Send Email"
           image={email}
-          animationDelay="15s"
+          animationDelay="5s"
         />
       </div>
 

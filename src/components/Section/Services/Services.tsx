@@ -96,7 +96,7 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="w-[63%] justify-center items-center flex flex-wrap gap-7">
+      <div className="w-full md:w-[63%] justify-center items-center flex flex-wrap gap-7">
         <ProductCard title="AI-Driven Solutions" icon={ai} />
         <ProductCard title="Serverless Computing" icon={serverless} />
         <ProductCard title="Cloud Integration" icon={cloud} />
