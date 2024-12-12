@@ -44,6 +44,7 @@
   }
   body {
     @apply bg-background text-foreground font-satoshi p-0 m-0;
+    touch-action: auto;
   }
 }
 
@@ -72,10 +73,9 @@
   font-size: clamp(24px, 4vw, 32px);
 }
 
-.text-clamp-footer{
+.text-clamp-footer {
   font-size: clamp(27px, 5vw, 62px);
 }
-
 
 .skill {
   cursor: pointer;

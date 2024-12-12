@@ -6,11 +6,35 @@ import { scrollToSection } from "@/lib/scrollToSection";
 import Image from "next/image";
 import AccentTextButtonUp from "../CustomUI/Button/AccentTextButtonUp";
 import { Separator } from "../ui/separator";
+import { useRouter } from "next/navigation";
+
+const menus = [
+  {
+    title: "Why Us",
+    link: "whyus",
+  },
+
+  {
+    title: "Mission",
+    link: "mission",
+  },
+
+  {
+    title: "Works",
+    link: "works",
+  },
+
+  {
+    title: "Services",
+    link: "services",
+  },
+];
 
 export default function Footer() {
+  const router = useRouter();
   return (
     <div className="w-full h-full flex justify-center items-center py-10">
-      <div className="w-[80%] h-[80dvh] border rounded-3xl relative flex justify-center items-center">
+      <div className="w-[90%] lg:w-[80%] h-auto border rounded-3xl relative flex justify-center items-center py-10 px-3 lg:p-24">
         <div className="absolute inset-0 -z-10 flex justify-center items-center">
           <div className="w-full h-full bg-grid-slate-200 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] opacity-20" />
         </div>
@@ -19,6 +43,7 @@ export default function Footer() {
           <Link
             onClick={(e) => {
               e.preventDefault();
+              router.push("/");
               scrollToSection("hero");
             }}
             href="/"
@@ -45,57 +70,24 @@ export default function Footer() {
 
           <div className="w-full xl:w-1/3 flex flex-col justify-center items-center space-x-3 text-center">
             <ul className="flex flex-wrap justify-center items-center gap-5 font-manrope text-[#AFAFAF] text-[16px] md:text-[18px] font-normal">
+              {menus.map((menu, i) => (
+                <li key={i}>
+                  <Link
+                    href={`/#${menu.link}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      router.push(`/#${menu.link}`);
+                      scrollToSection(`${menu.link}`);
+                    }}
+                    className="hover:text-gray-300"
+                  >
+                    {menu.title}
+                  </Link>
+                </li>
+              ))}
               <li>
-                <Link
-                  href="#whyus"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("whyus");
-                  }}
-                  className="hover:text-gray-300"
-                >
-                  Why Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#mission"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("mission");
-                  }}
-                  className="hover:text-gray-300"
-                >
-                  Mission
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#works"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("works");
-                  }}
-                  className="hover:text-gray-300"
-                >
-                  Works
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#services"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("services");
-                  }}
-                  className="hover:text-gray-300"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-gray-300">
-                  Pages
+                <Link href="/contact" className="hover:text-gray-300">
+                  Contact
                 </Link>
               </li>
             </ul>
