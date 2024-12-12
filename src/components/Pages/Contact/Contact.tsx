@@ -4,11 +4,60 @@ import {
   DescriptionText,
   TitleText,
 } from "@/components/CustomUI/Typography/text";
-import React from "react";
+import FAQ from "@/components/Section/FAQ/FAQ";
+import Image from "next/image";
+import address from "../../../../public/svg/home-contact.svg";
+import phone from "../../../../public/svg/phone-contact.svg";
+import email from "../../../../public/svg/email-contact.svg";
+
+const contactInfo = [
+  {
+    title: "Head Office",
+    icon: address,
+    list: [
+      {
+        no: 1,
+        text: "5899 Alexys Highway Suite",
+      },
+      {
+        no: 2,
+        text: "678, NR, Nevada, USA",
+      },
+    ],
+  },
+  {
+    title: "Phone",
+    icon: phone,
+    list: [
+      {
+        no: 1,
+        text: "+1 234 567 890",
+      },
+      {
+        no: 2,
+        text: "+1 234 567 890",
+      },
+    ],
+  },
+  {
+    title: "Email",
+    icon: email,
+    list: [
+      {
+        no: 1,
+        text: "customer@agencyjoy.com",
+      },
+      {
+        no: 2,
+        text: "client@agencyjoy.com",
+      },
+    ],
+  },
+];
 
 export default function Contact() {
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center gap-8 pt-28">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center gap-[60px] pt-28">
       <div className="flex flex-col justify-center items-center gap-8 px-2">
         <SectionBadge title="Let's Talk" />
         <TitleText title="We're Here To Help" />
@@ -103,6 +152,44 @@ export default function Contact() {
           </h2>
         </div>
       </div>
+
+      <div className="w-[80%] lg:w-[70%]">
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-x-0 divide-y md:divide-x md:divide-y-0">
+          {contactInfo.map((info, i) => (
+            <div
+              className="w-full flex flex-col justify-center items-center gap-3 py-5 md:py-0"
+              key={i}
+            >
+              <div className="w-61 h-16 p-4 border rounded-full bg-gradient-to-tl from-[#141414] to-[#3D3D3D]">
+                <Image
+                  src={info.icon}
+                  height={1000}
+                  width={1000}
+                  alt="Icon"
+                  className="w-full h-full"
+                />
+              </div>
+
+              <h1 className="font-medium text-[18px] lg:text-[21px] text-[#FFFFFF]">
+                {info.title}
+              </h1>
+
+              <div className="flex flex-col justify-center items-center">
+                {info.list.map((item, i) => (
+                  <h3
+                    className="font-manrope font-normal text-[16px] lg:text-[18px] text-[#AFAFAF]"
+                    key={i}
+                  >
+                    {item.text}
+                  </h3>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <FAQ />
     </div>
   );
 }

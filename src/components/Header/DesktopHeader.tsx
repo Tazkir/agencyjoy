@@ -119,7 +119,13 @@ function DesktopHeader() {
           </li>
         </ul>
 
-        <PrimaryButton title="Let's Talk" />
+        <PrimaryButton
+          title="Let's Talk"
+          onClick={(e) => {
+            e.preventDefault();
+            router.push(`/contact`);
+          }}
+        />
       </nav>
     </>
   );

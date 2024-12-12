@@ -112,6 +112,10 @@ function MobileHeader() {
                   <PrimaryButton
                     classNames="w-[10em] px-2 text-base text-white"
                     title="Let's Talk"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      router.push(`/contact`);
+                    }}
                   />
                 </li>
               </ul>

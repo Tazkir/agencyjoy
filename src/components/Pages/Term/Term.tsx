@@ -1,4 +1,4 @@
-import { DescriptionText } from "../CustomUI/Typography/text";
+import { DescriptionText } from "../../CustomUI/Typography/text";
 
 const terms = [
   {
