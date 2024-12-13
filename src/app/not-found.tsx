@@ -14,6 +14,8 @@ import serverless from "../../public/product/serverless.svg";
 import { StaticImageData } from "next/image";
 import Physics from "@/components/NotFound/Physics";
 import ProductCard from "@/components/Card/ProductCard";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
+import { AnimatedDiv } from "@/components/Motion/AnimatedComponents";
 
 type ProductProps = {
   title: string;
@@ -33,22 +35,34 @@ const products: ProductProps[] = [
 ];
 
 function NotFoundPage() {
+  const { ref: sectionRef } = useInViewAnimation({
+    threshold: 0.1,
+  });
+
   return (
-    <div className="w-full h-auto flex flex-col justify-center items-center gap-8 py-52 relative">
+    <div
+      className="w-full h-auto flex flex-col justify-center items-center gap-8 py-52 relative"
+      ref={sectionRef}
+    >
       <div className="flex flex-col justify-center items-center gap-8 relative">
-        <h3 className="font-medium text-[#FFFFFF] text-[18px] md:text-[20px] lg:text-[24px]">
-          Page Not Found
-        </h3>
-
-        <h1 className="text-[100px] md:text-[150px] lg:text-[206px] font-medium bg-gradient-to-b from-[#171717] to-[#3D3D3D] inline-block text-transparent bg-clip-text">
-          404
-        </h1>
-
-        <p className="font-manrope font-normal text-[#AFAFAF] text-[16px] md:text-[18px]">
-          We can’t find the page you’re looking for.
-        </p>
-
-        <AccentButtonUp title="Back to Home" classNames="relative z-40" />
+        <AnimatedDiv viewportOptions={{ amount: 0.2, delay: 0.1 }}>
+          <h3 className="font-medium text-[#FFFFFF] text-[18px] md:text-[20px] lg:text-[24px]">
+            Page Not Found
+          </h3>
+        </AnimatedDiv>
+        <AnimatedDiv viewportOptions={{ amount: 0.3, delay: 0.3 }}>
+          <h1 className="text-[100px] md:text-[150px] lg:text-[206px] font-medium bg-gradient-to-b from-[#171717] to-[#3D3D3D] inline-block text-transparent bg-clip-text">
+            404
+          </h1>
+        </AnimatedDiv>
+        <AnimatedDiv viewportOptions={{ amount: 0.5, delay: 0.5 }}>
+          <p className="font-manrope font-normal text-[#AFAFAF] text-[16px] md:text-[18px]">
+            We can’t find the page you’re looking for.
+          </p>
+        </AnimatedDiv>
+        <AnimatedDiv viewportOptions={{ amount: 0.7, delay: 0.7 }}>
+          <AccentButtonUp title="Back to Home" classNames="relative z-40" />
+        </AnimatedDiv>
       </div>
 
       <div className="w-[90%] h-screen absolute bottom-0 isolate pointer-events-none">

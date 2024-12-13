@@ -1,6 +1,11 @@
+"use client";
+
 import AccordionFaq from "@/components/CustomUI/Accordion/accordionFaq";
 import SectionBadge from "@/components/CustomUI/SectionBadge/SectionBadge";
 import { TitleText } from "@/components/CustomUI/Typography/text";
+import { AnimatedDiv } from "@/components/Motion/AnimatedComponents";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
+import { AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
@@ -26,26 +31,40 @@ const faqs = [
 ];
 
 export default function FAQ() {
+  const { ref: sectionRef } = useInViewAnimation({
+    threshold: 0.1,
+  });
+
   return (
-    <div
-      id="faq"
-      className="w-full relative flex flex-col justify-center items-center gap-14 py-14"
-    >
-      <div className="w-full flex flex-col justify-center items-center gap-4">
-        <SectionBadge title="Need to Know" />
+    <AnimatePresence>
+      <div
+        id="faq"
+        className="w-full relative flex flex-col justify-center items-center gap-14 py-14"
+        ref={sectionRef}
+      >
+        <div className="w-full flex flex-col justify-center items-center gap-4">
+          <AnimatedDiv viewportOptions={{ amount: 0.2, delay: 0.1 }}>
+            <SectionBadge title="Need to Know" />
+          </AnimatedDiv>
 
-        <TitleText title="Frequently Asked Questions" />
-      </div>
+          <AnimatedDiv viewportOptions={{ amount: 0.3, delay: 0.3 }}>
+            <TitleText title="Frequently Asked Questions" />
+          </AnimatedDiv>
+        </div>
 
-      <div className="w-[90%] xl:w-2/4 flex flex-col gap-2">
-        {faqs.map((faq, index) => (
-          <AccordionFaq title={faq.title} key={index}>
-            <p className="font-manrope font-normal text-[#919191] text-[19px]">
-              {faq.content}
-            </p>
-          </AccordionFaq>
-        ))}
+        <AnimatedDiv
+          viewportOptions={{ amount: 0.4, delay: 0.4 }}
+          className="w-[90%] xl:w-2/4 flex flex-col gap-2"
+        >
+          {faqs.map((faq, index) => (
+            <AccordionFaq title={faq.title} key={index}>
+              <p className="font-manrope font-normal text-[#919191] text-[19px]">
+                {faq.content}
+              </p>
+            </AccordionFaq>
+          ))}
+        </AnimatedDiv>
       </div>
-    </div>
+    </AnimatePresence>
   );
 }

@@ -14,6 +14,9 @@ import svg2 from "../../../../public/svg/charts2.svg";
 import ImagesList from "./ImagesList";
 import { StaticImageData } from "next/image";
 import AccordionList from "./AccordionList";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
+import { AnimatePresence } from "framer-motion";
+import { AnimatedDiv } from "@/components/Motion/AnimatedComponents";
 
 interface Metric {
   value: string;
@@ -61,42 +64,74 @@ export default function Works() {
     }
   };
 
+  const { ref: sectionRef } = useInViewAnimation({
+    threshold: 0.1,
+  });
+
   return (
-    <div
-      id="works"
-      className="w-full h-auto relative py-20 flex flex-col justify-center items-center gap-16"
-    >
-      <div className="w-full flex flex-col justify-center items-center gap-5">
-        <SectionBadge title="Work That Make Us Proud" />
+    <AnimatePresence>
+      <div
+        id="works"
+        className="w-full h-auto relative py-20 flex flex-col justify-center items-center gap-16"
+      >
+        <div
+          className="w-full h-auto relative py-20 flex flex-col justify-center items-center gap-16"
+          ref={sectionRef}
+        >
+          <div className="w-full flex flex-col justify-center items-center gap-5">
+            <AnimatedDiv viewportOptions={{ amount: 0.2, delay: 0.1 }}>
+              <SectionBadge title="Work That Make Us Proud" />
+            </AnimatedDiv>
 
-        <div className="flex flex-col justify-center items-center text-center">
-          <TitleText title="Recent Works, Notable Impact" />
-        </div>
-
-        <div className="w-[90%] sm:w-[70%] flex xl:flex-row flex-col-reverse justify-center items-center gap-20 pt-5">
-          <div className="flex-1">
-            <AccordionList openIndex={openIndex} handleToggle={handleToggle} />
-          </div>
-
-          <div className="flex-1 w-full">
-            <ImagesList images={images} openIndex={openIndex} />
-          </div>
-        </div>
-      </div>
-
-      <div className="w-[80%] md:w-[90%] max-w-5xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 md:*:border-r md:last:*:border-none max-md:first:*:border-b max-md:first:*:border-r [&:nth-child(2)]:*:border-b md:[&:nth-child(2)]:*:border-b-0 [&:nth-child(3)]:*:border-r">
-          {metrics.map((metric, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center p-8 text-center"
+            <AnimatedDiv
+              viewportOptions={{ amount: 0.2, delay: 0.2 }}
+              className="flex flex-col justify-center items-center text-center"
             >
-              <h3 className="text-clamp-h2 font-medium mb-2">{metric.value}</h3>
-              <p className="text-clamp-h3 text-[#AFAFAF]">{metric.label}</p>
+              <TitleText title="Recent Works, Notable Impact" />
+            </AnimatedDiv>
+
+            <div className="w-[90%] sm:w-[70%] flex xl:flex-row flex-col-reverse justify-center items-center gap-20 pt-5">
+              <div className="flex-1">
+                <AnimatedDiv viewportOptions={{ amount: 0.2, delay: 0.3 }}>
+                  <AccordionList
+                    openIndex={openIndex}
+                    handleToggle={handleToggle}
+                  />
+                </AnimatedDiv>
+              </div>
+
+              <div className="flex-1 w-full">
+                <AnimatedDiv viewportOptions={{ amount: 0.7, delay: 1 }}>
+                  <ImagesList images={images} openIndex={openIndex} />
+                </AnimatedDiv>
+              </div>
             </div>
-          ))}
+          </div>
+
+          <div className="w-[80%] md:w-[90%] max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 md:*:border-r md:last:*:border-none max-md:first:*:border-b max-md:first:*:border-r [&:nth-child(2)]:*:border-b md:[&:nth-child(2)]:*:border-b-0 [&:nth-child(3)]:*:border-r">
+              {metrics.map((metric, index) => (
+                <AnimatedDiv
+                  key={index}
+                  viewportOptions={{ amount: 0.7, delay: index * 0.3 }}
+                >
+                  <div
+                    key={index}
+                    className="flex flex-col items-center justify-center p-8 text-center"
+                  >
+                    <h3 className="text-clamp-h2 font-medium mb-2">
+                      {metric.value}
+                    </h3>
+                    <p className="text-clamp-h3 text-[#AFAFAF]">
+                      {metric.label}
+                    </p>
+                  </div>
+                </AnimatedDiv>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </AnimatePresence>
   );
 }

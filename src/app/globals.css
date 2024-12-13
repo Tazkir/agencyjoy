@@ -44,9 +44,9 @@
   }
   body {
     @apply bg-background text-foreground font-satoshi p-0 m-0;
-    touch-action: auto;
   }
 }
+
 
 .text-clamp-hero {
   font-size: clamp(34px, 10vw, 72px);

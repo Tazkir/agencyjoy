@@ -1,4 +1,8 @@
+"use client";
+
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
 import { DescriptionText } from "../../CustomUI/Typography/text";
+import { AnimatedDiv } from "@/components/Motion/AnimatedComponents";
 
 const terms = [
   {
@@ -49,18 +53,32 @@ const terms = [
 ];
 
 export default function Term() {
+  const { ref: sectionRef } = useInViewAnimation({
+    threshold: 0.1,
+  });
+
   return (
-    <div className="w-full min-h-screen flex flex-col justify-start items-center gap-[90px] pt-[230px] ">
+    <div
+      className="w-full min-h-screen flex flex-col justify-start items-center gap-[90px] pt-[230px]"
+      ref={sectionRef}
+    >
       <div className="flex flex-col justify-center items-center gap-5">
-        <h1 className="text-clamp-hero font-medium">Term & Conditions</h1>
-        <div className="w-[96%] lg:w-[60%]">
+        <AnimatedDiv viewportOptions={{ amount: 0.2, delay: 0.1 }}>
+          <h1 className="text-clamp-hero font-medium">Term & Conditions</h1>
+        </AnimatedDiv>
+
+        <AnimatedDiv
+          viewportOptions={{ amount: 0.3, delay: 0.3 }}
+          className="w-[96%] lg:w-[60%]"
+        >
           <DescriptionText title="Welcome to AgencyJoy! These terms and conditions outline the rules and regulations for the use of our website and services." />
-        </div>
+        </AnimatedDiv>
       </div>
 
       <div className="w-[90%] lg:w-[50%] flex flex-col justify-center items-start text-left gap-5">
         {terms.map((term, i) => (
-          <div
+          <AnimatedDiv
+            viewportOptions={{ amount: 0.4, delay: 0.4 }}
             key={i}
             className="flex flex-col justify-center items-start text-left gap-5"
           >
@@ -70,16 +88,19 @@ export default function Term() {
             <p className="font-manrope font-normal text-[#AFAFAF] text-[16px] lg:text-[18px]">
               {term.desc}
             </p>
-          </div>
+          </AnimatedDiv>
         ))}
       </div>
 
-      <div className="w-[90%] lg:w-[50%] flex justify-center items-start text-left pb-5">
+      <AnimatedDiv
+        viewportOptions={{ amount: 0.5, delay: 0.5 }}
+        className="w-[90%] lg:w-[50%] flex justify-center items-start text-left pb-5"
+      >
         <p className="font-manrope font-normal text-[#AFAFAF] text-[16px] lg:text-[18px]">
           By using AgencyJoy’s services, you acknowledge that you have read,
           understood, and agree to be bound by these Terms and Conditions.
         </p>
-      </div>
+      </AnimatedDiv>
     </div>
   );
 }

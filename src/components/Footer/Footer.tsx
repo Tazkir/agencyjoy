@@ -7,6 +7,8 @@ import Image from "next/image";
 import AccentTextButtonUp from "../CustomUI/Button/AccentTextButtonUp";
 import { Separator } from "../ui/separator";
 import { useRouter } from "next/navigation";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
+import { AnimatedDiv } from "../Motion/AnimatedComponents";
 
 const menus = [
   {
@@ -31,10 +33,20 @@ const menus = [
 ];
 
 export default function Footer() {
+  const { ref: sectionRef } = useInViewAnimation({
+    threshold: 0.1,
+  });
+
   const router = useRouter();
   return (
-    <div className="w-full h-full flex justify-center items-center py-10">
-      <div className="w-[90%] lg:w-[80%] h-auto border rounded-3xl relative flex justify-center items-center py-10 px-3 lg:p-24">
+    <div
+      className="w-full h-full flex justify-center items-center py-10"
+      ref={sectionRef}
+    >
+      <AnimatedDiv
+        viewportOptions={{ amount: 0.2, delay: 0.1 }}
+        className="w-[90%] lg:w-[80%] h-auto border rounded-3xl relative flex justify-center items-center py-10 px-3 lg:p-24"
+      >
         <div className="absolute inset-0 -z-10 flex justify-center items-center">
           <div className="w-full h-full bg-grid-slate-200 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] opacity-20" />
         </div>
@@ -121,7 +133,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </AnimatedDiv>
     </div>
   );
 }
